@@ -11,8 +11,8 @@ if [ $3 == 1 ]; then
   if [ ${NUM_CHECKOUTS} -eq 1 ]; then 
 
     # Add your own PROJECT_ID and API_KEY
-    PROJECT_ID=$NEON_PROJECT_ID
-    API_KEY=$NEON_API_KEY
+    PROJECT_ID=$PROJECT_ID
+    API_KEY=$API_KEY
 
     # Get the list of branches
     BRANCHES_JSON=$(curl --silent --request GET \
@@ -57,11 +57,11 @@ if [ $3 == 1 ]; then
         CONNECTION_URI=$(echo $RESPONSE | jq -r '.connection_uris[0].connection_uri')
 
         if [[ $CONNECTION_URI == postgres://* ]]; then
-        # If it does, write it to the .env file
-        echo "CONNECTION_URI=$CONNECTION_URI" >> .env
+          # If it does, write it to the .env file
+          echo "CONNECTION_URI=$CONNECTION_URI" >> .env
         else
-        # If it doesn't, print an error message or handle this case as needed
-        echo "Invalid connection string."
+          # If it doesn't, print an error message or handle this case as needed
+          echo "Invalid connection string."
         fi
     else
         echo "Skipping Neon branch creation"
