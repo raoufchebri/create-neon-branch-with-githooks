@@ -34,13 +34,13 @@ The `neon_project_id` for a Neon project is found on the Settings page in the Ne
 4. Move the script to the .git/hooks directory in your Git repository:
 
 ```bash
-mv post-checkout create-neon-branch-with-githooks/.git/hooks/
+mv post-checkout .git/hooks/
 ```
 
 5. Make the script executable:
 
 ```bash
-chmod +x your-git-repository/.git/hooks/post-checkout
+chmod +x .git/hooks/post-checkout
 ```
 
 ### Usage
