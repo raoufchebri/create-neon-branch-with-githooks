@@ -58,7 +58,7 @@ if [ $3 == 1 ]; then
 
         if [[ $CONNECTION_URI == postgres://* ]]; then
         # If it does, write it to the .env file
-        echo "CONNECTION_URI=$CONNECTION_URI" >> .env
+        echo "DATABASE_URL=$CONNECTION_URI" >> .env
         else
         # If it doesn't, print an error message or handle this case as needed
         echo "Invalid connection string."
